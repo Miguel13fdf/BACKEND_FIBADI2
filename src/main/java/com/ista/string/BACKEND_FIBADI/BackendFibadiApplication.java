@@ -8,6 +8,7 @@ public class BackendFibadiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendFibadiApplication.class, args);
+		System.out.println("Exito");
 	}
 
 }
