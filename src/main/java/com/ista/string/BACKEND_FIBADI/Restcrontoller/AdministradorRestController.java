@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Administrador;
@@ -53,5 +54,9 @@ public class AdministradorRestController {
 	public void deleteAdmin(@PathVariable("id") Long id_adm) {
 		adminService.DeleteAdministradorById(id_adm);
 	}
+	 @GetMapping("/administradores/criterio")
+	    public List<Administrador> findAdministradoresByCriteria(@RequestParam("criterio") String criterio) {
+	        return adminService.findAdministradoresByCriteria(criterio);
+	    }
 	
 }

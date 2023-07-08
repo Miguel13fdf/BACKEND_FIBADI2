@@ -12,5 +12,5 @@ public interface IAdministradorService {
 	public Administrador findAdministradorById(Long id_adm);
 	
 	public void DeleteAdministradorById(Long id_adm);
-	
+	 public List<Administrador> findAdministradoresByCriteria(String criterio);
 }
