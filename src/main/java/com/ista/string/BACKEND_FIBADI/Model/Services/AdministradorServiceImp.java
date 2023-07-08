@@ -37,4 +37,10 @@ public class AdministradorServiceImp implements IAdministradorService{
 	public void DeleteAdministradorById(Long id_adm) {
 		adminDao.deleteById(id_adm);		
 	}
+	
+	  @Override
+	    @Transactional(readOnly = true)
+	    public List<Administrador> findAdministradoresByCriteria(String criterio) {
+	        return adminDao.findAdministradoresByCriteria(criterio);
+	    }
 }
