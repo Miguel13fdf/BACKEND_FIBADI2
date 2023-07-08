@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 public interface IAdministradorDao extends CrudRepository<Administrador, Long> {
 
 
-    @Query("SELECT a FROM Administrador a WHERE a.adm_usuario LIKE %:criterio%")
+	  @Query(value = "SELECT * FROM Administrador WHERE adm_usuario LIKE %:criterio%", nativeQuery = true)
     List<Administrador> findAdministradoresByCriteria(@Param("criterio") String criterio);
 
 }
