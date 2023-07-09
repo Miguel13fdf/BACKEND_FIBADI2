@@ -28,6 +28,8 @@ public class Administrador implements Serializable {
 	
 	private String adm_contrasenia;
 
+	private Boolean adm_estado;
+	
 	public Long getAdm_cod() {
 		return adm_cod;
 	}
@@ -51,5 +53,13 @@ public class Administrador implements Serializable {
 	public void setAdm_contrasenia(String adm_contrasenia) {
 		this.adm_contrasenia = adm_contrasenia;
 	}
-	
+
+	public Boolean getAdm_estado() {
+		return adm_estado;
+	}
+
+	public void setAdm_estado(Boolean adm_estado) {
+		this.adm_estado = adm_estado;
+	}
+
 }
