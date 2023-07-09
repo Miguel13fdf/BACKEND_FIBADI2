@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ista.string.BACKEND_FIBADI.Dao.IPersonaDao;
-import com.ista.string.BACKEND_FIBADI.Model.Administrador;
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
 @Service

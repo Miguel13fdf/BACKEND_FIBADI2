@@ -52,16 +52,6 @@ public class Persona implements Serializable{
 	@Column(name = "per_fechanac", nullable = false)
 	private Date perFechaNac;
 
-	// Constructor, getters y setters
-         
-	// Validación personalizada para el atributo perGenero
-	@PrePersist
-	@PreUpdate
-	private void validateGenero() {
-	    if (perGenero != null && !perGenero.matches("[MF]")) {
-	        throw new IllegalArgumentException("El campo 'perGenero' solo acepta los valores 'M' o 'F'.");
-	    }
-	}
 
 	public Persona(Long perCod, String perCedula, String perPrimerNom, String perSegundoNom, String perApellidoPater,
 			String perApellidoMater, String perTelefono, String perGenero, String perEmail, Date perFechaNac) {
@@ -82,14 +72,6 @@ public class Persona implements Serializable{
 	public Persona() {
 	}
 
-	// Validación personalizada para el atributo perCedula
-	@PrePersist
-	@PreUpdate
-	private void validateCedula() {
-	    if (perCedula != null && (!perCedula.matches("[0-9]+") || perCedula.length() != 10)) {
-	        throw new IllegalArgumentException("El campo 'perCedula' debe contener 10 caracteres numéricos.");
-	    }
-	}
 
 	public Long getPerCod() {
 		return perCod;
@@ -171,9 +153,7 @@ public class Persona implements Serializable{
 		this.perFechaNac = perFechaNac;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 
 
 }

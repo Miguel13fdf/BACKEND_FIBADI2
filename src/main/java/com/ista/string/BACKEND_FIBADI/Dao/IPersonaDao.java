@@ -5,7 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import org.springframework.data.repository.query.Param;
 
-import com.ista.string.BACKEND_FIBADI.Model.Administrador;
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
 public interface IPersonaDao extends CrudRepository<Persona, Long>  {
