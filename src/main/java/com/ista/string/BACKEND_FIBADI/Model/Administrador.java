@@ -2,26 +2,27 @@ package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Administrador implements Serializable {
 
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4342051221624286849L;
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.SEQUENCE) 
 	private Long adm_cod;
 	
-	//FK adm_per_cod;
+	@OneToOne (cascade = CascadeType.ALL)
+	@JoinColumn (name = "adm_per_cod", referencedColumnName = "per_cod")
+	private Persona persona;
 	
 	@Column (unique = true)
 	private String adm_usuario;
