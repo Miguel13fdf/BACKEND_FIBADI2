@@ -1,4 +1,4 @@
-package com.ista.string.BACKEND_FIBADI.Restcrontoller;
+package com.ista.string.BACKEND_FIBADI.Restcontroller;
 
 import java.util.List;
 
