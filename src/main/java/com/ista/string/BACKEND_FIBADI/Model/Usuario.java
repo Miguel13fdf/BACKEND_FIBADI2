@@ -81,6 +81,15 @@ public class Usuario implements Serializable {
 	public Boolean getUsu_estado() {
 		return usu_estado;
 	}
+	
+
+	public Collection<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Rol> roles) {
+		this.roles = roles;
+	}
 
 	public void setUsu_estado(Boolean usu_estado) {
 		this.usu_estado = usu_estado;

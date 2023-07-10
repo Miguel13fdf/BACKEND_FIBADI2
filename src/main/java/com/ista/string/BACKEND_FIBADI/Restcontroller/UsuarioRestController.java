@@ -52,8 +52,8 @@ public class UsuarioRestController {
 	}
 
 	@GetMapping("/usuarios/criterio")
-    public List<Usuario> findUserByCriterio(@RequestParam("criterio") String criterio) {
-	        return usuarioService.findUsuarioByCriterio(criterio);
-    }
+	public Usuario findUserByCriterio(@RequestParam("criterio") String criterio) {
+	    return usuarioService.findUsuarioByCriterio(criterio);
+	}
 	
 }
