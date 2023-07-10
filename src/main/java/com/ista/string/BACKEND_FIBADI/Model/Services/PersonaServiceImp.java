@@ -3,6 +3,9 @@ package com.ista.string.BACKEND_FIBADI.Model.Services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,8 +43,16 @@ public class PersonaServiceImp implements IPersonaService{
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Persona> findPersonasByCriteria(String criterio) {
+	public Persona findPersonasByCriteria(String criterio) {
 		return personaDao.findPersonasByCriteria(criterio);
 	}
 
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Persona persona = personaDao.findPersonasByCriteria(username);
+		if(persona == null) {
+			throw new UsernameNotFoundException("Usuario no válido");
+		}
+		return new User(persona.getPerEmail(), persona.getPerCedula(), null); //usuario, contraseña, rol
+	}
 }
