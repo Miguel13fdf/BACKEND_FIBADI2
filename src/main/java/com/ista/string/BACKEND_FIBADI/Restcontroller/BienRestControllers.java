@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ista.string.BACKEND_FIBADI.Model.Bien;
-import com.ista.string.BACKEND_FIBADI.Services.IBienServices;
+import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
 
 
 @CrossOrigin(origins = {"http://localhost:4200"})
