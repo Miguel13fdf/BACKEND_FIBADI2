@@ -1,9 +1,12 @@
 package com.ista.string.BACKEND_FIBADI.Model.Services;
 
 import java.util.List;
+
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 
-public interface IUsuarioService {
+public interface IUsuarioService extends UserDetailsService {
 
 	public List<Usuario> ListAll();
 	
@@ -11,5 +14,5 @@ public interface IUsuarioService {
 	
 	public Usuario findUsuarioById(Long id_usu);
 		
-	public List<Usuario> findUsuarioByCriterio(String criterio);
+	public Usuario findUsuarioByCriterio(String criterio);
 }

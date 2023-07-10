@@ -46,13 +46,4 @@ public class PersonaServiceImp implements IPersonaService{
 	public Persona findPersonasByCriteria(String criterio) {
 		return personaDao.findPersonasByCriteria(criterio);
 	}
-
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Persona persona = personaDao.findPersonasByCriteria(username);
-		if(persona == null) {
-			throw new UsernameNotFoundException("Usuario no válido");
-		}
-		return new User(persona.getPerEmail(), persona.getPerCedula(), null); //usuario, contraseña, rol
-	}
 }
