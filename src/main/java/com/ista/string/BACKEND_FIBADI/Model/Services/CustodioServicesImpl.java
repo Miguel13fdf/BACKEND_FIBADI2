@@ -1,4 +1,4 @@
-package com.ista.string.BACKEND_FIBADI.Services;
+package com.ista.string.BACKEND_FIBADI.Model.Services;
 
 import java.util.List;
 import java.util.Optional;
