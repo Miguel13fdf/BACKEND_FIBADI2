@@ -9,5 +9,5 @@ import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
 public interface IPersonaDao extends CrudRepository<Persona, Long>  {
 	@Query(value = "SELECT * FROM Persona WHERE per_cedula = :criterio OR per_email = :criterio", nativeQuery = true)
-	List<Persona> findPersonasByCriteria(@Param("criterio") String criterio);
+	Persona findPersonasByCriteria(@Param("criterio") String criterio);
 }

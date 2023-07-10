@@ -2,9 +2,11 @@ package com.ista.string.BACKEND_FIBADI.Model.Services;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
-public interface IPersonaService {
+public interface IPersonaService extends UserDetailsService{
 	public List<Persona> listAll();
 
 	public Persona savePersona(Persona persona);
@@ -13,5 +15,5 @@ public interface IPersonaService {
 
 	public void deletePersonaById(Long idPersona);
 
-	public List<Persona> findPersonasByCriteria(String criterio);
+	public Persona findPersonasByCriteria(String criterio);
 }
