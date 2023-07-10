@@ -1,14 +1,18 @@
 package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,6 +31,13 @@ public class Usuario implements Serializable {
 	private Persona persona;
 	
 	//FK usu_rol
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "usuarios_roles",
+			joinColumns = @JoinColumn(name = "usuario_id",referencedColumnName = "usu_cod"),
+			inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "rol_cod")
+			)
+	private Collection<Rol> roles;
 	
 	@Column (unique = true)
 	private String usu_usuario;

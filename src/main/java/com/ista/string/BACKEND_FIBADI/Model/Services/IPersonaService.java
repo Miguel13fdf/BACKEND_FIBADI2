@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
-public interface IPersonaService extends UserDetailsService{
+public interface IPersonaService{
 	public List<Persona> listAll();
 
 	public Persona savePersona(Persona persona);
