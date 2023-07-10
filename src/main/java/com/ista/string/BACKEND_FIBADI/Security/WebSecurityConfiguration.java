@@ -11,13 +11,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.ista.string.BACKEND_FIBADI.Model.Services.IPersonaService;
+import com.ista.string.BACKEND_FIBADI.Model.Services.IUsuarioService;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfiguration{
 	
 	@Autowired
-	private IPersonaService personaService;
+	private IUsuarioService personaService;
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
@@ -33,25 +34,24 @@ public class WebSecurityConfiguration{
 	}
 	
 	@Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-                .antMatchers("/registro**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutUrl("/login?logout")
-                .permitAll();
-        
-        http.headers().frameOptions().sameOrigin();
-        
-        return http.build();
-    }
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+	    http
+	        .authorizeRequests()
+	            .antMatchers("/registro**").permitAll()
+	            .anyRequest().permitAll() // Permite acceso anónimo a cualquier otra ruta
+	            .and()
+	        .formLogin()
+	            .disable() // Deshabilita el formulario de inicio de sesión
+	        .logout()
+	            .invalidateHttpSession(true)
+	            .clearAuthentication(true)
+	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+	            .logoutUrl("/login?logout")
+	            .permitAll();
+	    
+	    http.headers().frameOptions().sameOrigin();
+	    
+	    return http.build();
+	}
+
 }
