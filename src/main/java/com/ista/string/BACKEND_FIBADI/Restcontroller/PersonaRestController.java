@@ -1,4 +1,4 @@
-package com.ista.string.BACKEND_FIBADI.Restcrontoller;
+package com.ista.string.BACKEND_FIBADI.Restcontroller;
 
 import java.util.List;
 
@@ -61,7 +61,7 @@ public class PersonaRestController {
 	}
 
 	@GetMapping("/personas/criterio")
-	public List<Persona> findPersonasByCriteria(@RequestParam("criterio") String criterio) {
+	public Persona findPersonasByCriteria(@RequestParam("criterio") String criterio) {
 		return personaService.findPersonasByCriteria(criterio);
 	}
 }
