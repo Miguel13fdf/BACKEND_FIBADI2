@@ -43,13 +43,13 @@ public class Historial implements Serializable {
 	 * FK his_bie_cod
 	 * */
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn (name = "his_usu_cod", referencedColumnName = "usu_cod")
-	private List<Usuario> usuario;
+	private Usuario usuario;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn (name = "his_bie_cod", referencedColumnName = "bien_cod")
-	private List<Bien> bien;
+	private Bien bien;
 	
 	public Long getHis_cod() {
 		return his_cod;
@@ -75,19 +75,19 @@ public class Historial implements Serializable {
 		this.his_detalles = his_detalles;
 	}
 
-	public List<Usuario> getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(List<Usuario> usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-	public List<Bien> getBien() {
+	public Bien getBien() {
 		return bien;
 	}
 
-	public void setBien(List<Bien> bien) {
+	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
 	
