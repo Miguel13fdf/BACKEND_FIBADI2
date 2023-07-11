@@ -23,10 +23,10 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 4342051221624286849L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE) 
+	@GeneratedValue (strategy = GenerationType.IDENTITY) 
 	private Long usu_cod;
 	
-	@OneToOne (cascade = CascadeType.ALL)
+	@OneToOne (cascade = CascadeType.MERGE)
 	@JoinColumn (name = "usu_per_cod", referencedColumnName = "per_cod")
 	private Persona persona;
 	

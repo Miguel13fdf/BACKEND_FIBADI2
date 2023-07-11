@@ -35,19 +35,11 @@ public class WebSecurityConfiguration{
 	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-	    http
-	        .authorizeRequests()
-	            .antMatchers("/registro**").permitAll()
-	            .anyRequest().permitAll() // Permite acceso anónimo a cualquier otra ruta
-	            .and()
-	        .formLogin()
-	            .disable() // Deshabilita el formulario de inicio de sesión
-	        .logout()
-	            .invalidateHttpSession(true)
-	            .clearAuthentication(true)
-	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	            .logoutUrl("/login?logout")
-	            .permitAll();
+		http
+        .authorizeRequests()
+            .anyRequest().permitAll()
+            .and()
+        .csrf().disable();
 	    
 	    http.headers().frameOptions().sameOrigin();
 	    
