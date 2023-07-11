@@ -1,7 +1,6 @@
 package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +22,8 @@ public class Rol implements Serializable {
 	private String rol_nombre;
 	
 	private Boolean rol_estado;
+
+
 
 	public Long getRol_cod() {
 		return rol_cod;

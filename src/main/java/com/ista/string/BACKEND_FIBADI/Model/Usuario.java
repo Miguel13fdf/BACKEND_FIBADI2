@@ -23,10 +23,10 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 4342051221624286849L;
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE) 
+	@GeneratedValue (strategy = GenerationType.IDENTITY) 
 	private Long usu_cod;
 	
-	@OneToOne (cascade = CascadeType.ALL)
+	@OneToOne (cascade = CascadeType.MERGE)
 	@JoinColumn (name = "usu_per_cod", referencedColumnName = "per_cod")
 	private Persona persona;
 	
@@ -80,6 +80,15 @@ public class Usuario implements Serializable {
 
 	public Boolean getUsu_estado() {
 		return usu_estado;
+	}
+	
+
+	public Collection<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Rol> roles) {
+		this.roles = roles;
 	}
 
 	public void setUsu_estado(Boolean usu_estado) {

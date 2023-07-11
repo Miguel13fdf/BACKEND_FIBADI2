@@ -8,14 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-
-import lombok.*;
 
 @Entity
-@Getter
-@Setter
 public class Persona implements Serializable{
 
 	private static final long serialVersionUID = 4342051221624286849L;
@@ -51,27 +45,6 @@ public class Persona implements Serializable{
 
 	@Column(name = "per_fechanac", nullable = false)
 	private Date perFechaNac;
-
-
-	public Persona(Long perCod, String perCedula, String perPrimerNom, String perSegundoNom, String perApellidoPater,
-			String perApellidoMater, String perTelefono, String perGenero, String perEmail, Date perFechaNac) {
-		super();
-		this.perCod = perCod;
-		this.perCedula = perCedula;
-		this.perPrimerNom = perPrimerNom;
-		this.perSegundoNom = perSegundoNom;
-		this.perApellidoPater = perApellidoPater;
-		this.perApellidoMater = perApellidoMater;
-		this.perTelefono = perTelefono;
-		this.perGenero = perGenero;
-		this.perEmail = perEmail;
-		this.perFechaNac = perFechaNac;
-	}
-	
-
-	public Persona() {
-	}
-
 
 	public Long getPerCod() {
 		return perCod;
@@ -152,8 +125,4 @@ public class Persona implements Serializable{
 	public void setPerFechaNac(Date perFechaNac) {
 		this.perFechaNac = perFechaNac;
 	}
-
-	
-
-
 }
