@@ -42,8 +42,8 @@ public class UsuarioRestController {
 	@PutMapping ("/usuarios/{id}")
 	public Usuario updateUser(@RequestBody Usuario usuario, @PathVariable("id") Long id_usu) {
 		Usuario usuarioActual = usuarioService.findUsuarioById(id_usu);
-		usuarioActual.setUsu_usuario(usuario.getUsu_usuario());
-		usuarioActual.setUsu_contrasenia(usuario.getUsu_contrasenia());
+		usuarioActual.setUsu_usuario(usuario.getUsuario());
+		usuarioActual.setContrasenia(usuario.getContrasenia());
 		usuarioActual.setPersona(usuario.getPersona());
 		usuarioActual.setUsu_estado(usuario.getUsu_estado());
 		
@@ -54,5 +54,13 @@ public class UsuarioRestController {
 	public Usuario findUserByCriterio(@RequestParam("criterio") String criterio) {
 	    return usuarioService.findUsuarioByCriterio(criterio);
 	}
-	
+	@GetMapping("login/{usuario}/{contrasenia}")
+	public String login(@PathVariable("usuario")String usuario,@PathVariable("contrasenia")String contrasenia) {
+		String login="ERROR";
+		List<Usuario> usuario1=usuarioService.findByUsuarioAndContrasenia(usuario, contrasenia);
+		if(!usuario1.isEmpty()) {
+			login="Ok";
+		}
+		return login;
+	}
 }

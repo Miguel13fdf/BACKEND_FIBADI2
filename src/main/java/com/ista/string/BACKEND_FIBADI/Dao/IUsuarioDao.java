@@ -10,5 +10,6 @@ public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 
 	@Query(value = "SELECT * FROM Usuario WHERE usu_usuario LIKE %:criterio%", nativeQuery = true)
     Usuario findAdministradoresByCriterio(@Param("criterio") String criterio);
+	 List<Usuario>findByUsuarioAndContrasenia(@Param("Usuario")String usuario,@Param("Contrasenia")String usu_contrasenia );
 
 }

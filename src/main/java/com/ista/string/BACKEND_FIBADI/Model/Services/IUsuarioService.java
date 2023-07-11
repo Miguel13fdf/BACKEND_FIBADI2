@@ -15,4 +15,5 @@ public interface IUsuarioService extends UserDetailsService {
 	public Usuario findUsuarioById(Long id_usu);
 		
 	public Usuario findUsuarioByCriterio(String criterio);
+	public  List<Usuario>findByUsuarioAndContrasenia(String usuario,String contrasenia );
 }
