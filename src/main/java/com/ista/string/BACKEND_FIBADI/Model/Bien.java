@@ -10,9 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table (name="bienes")
 @Entity
-
+@Table (name="bienes")
 public class Bien implements Serializable {
 	
 	/**
@@ -38,6 +37,10 @@ public class Bien implements Serializable {
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
 	private Ubicacion ubicacion;
+	
+	@ManyToOne
+	@JoinColumn (name = "bien_pro_cod", referencedColumnName = "pro_cod")
+	private Propietario propietario;
 	
 	public Long getBien_cod() {
 		return bien_cod;
@@ -112,6 +115,12 @@ public class Bien implements Serializable {
 	}
 	public void setUbicacion(Ubicacion ubicacion) {
 		this.ubicacion = ubicacion;
+	}
+	public Propietario getPropietario() {
+		return propietario;
+	}
+	public void setPropietario(Propietario propietario) {
+		this.propietario = propietario;
 	}
 	
 }
