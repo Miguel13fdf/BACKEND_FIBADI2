@@ -10,3 +10,6 @@ INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, 
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(920, 'BUESTAN', 'NARVAEZ','0103937561', 'freddy.narvaez@tecazuay.edu.ec','1985-11-07', 'M', 'FREDDY', 'EDUARDO', '0998343465');
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(915, 'URGILÉS', 'ORTIZ','0301162988', 'claudio.ortiz@tecazuay.edu.ec','1970-02-04', 'M', 'CLAUDIO', 'FERNANDO', '0988818368');
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(1749, 'MARIÑO', 'ELHABIL','0105704597', 'catherine.elhabil@tecazuay.edu.ec','1987-12-08', 'F', 'CATHERINE', 'CUMANDA', '0979195915');
+INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Super Usuario');
+INSERT INTO USUARIOS (usu_per_cod, usu_contrasenia, usu_estado, usu_usuario) values (902, 'admin', true, 'admin');
+INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
