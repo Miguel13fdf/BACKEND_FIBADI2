@@ -41,7 +41,7 @@ public class UsuarioServiceImp implements IUsuarioService {
 
         // Asignar el rol "admin" al usuario
         Rol rolAdmin = new Rol();
-        rolAdmin.setRol_nombre("admin");
+        //rolAdmin.setRol_nombre("admin");
 
         usuario.setRoles(Collections.singletonList(rolAdmin));
 
