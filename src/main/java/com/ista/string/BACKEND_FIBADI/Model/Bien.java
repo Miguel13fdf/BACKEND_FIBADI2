@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table (name="bienes")
@@ -33,6 +35,9 @@ public class Bien implements Serializable {
 	private Double bien_precio;
 	private String bien_estadoA;
 	
+	@ManyToOne
+	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
+	private Ubicacion ubicacion;
 	
 	public Long getBien_cod() {
 		return bien_cod;
@@ -102,6 +107,11 @@ public class Bien implements Serializable {
 		this.bien_estadoA = bien_estadoA;
 	}
 	
+	public Ubicacion getUbicacion() {
+		return ubicacion;
+	}
+	public void setUbicacion(Ubicacion ubicacion) {
+		this.ubicacion = ubicacion;
+	}
 	
-
 }
