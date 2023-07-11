@@ -2,30 +2,21 @@ package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table (name = "historial")
 public class Historial implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5991494988133707854L;
 	
 	@Id
@@ -37,11 +28,6 @@ public class Historial implements Serializable {
 	private Date his_fecha;
 	
 	private String his_detalles;
-
-	/*
-	 * FK his_cus_cod
-	 * FK his_bie_cod
-	 * */
 	
 	@ManyToOne
 	@JoinColumn (name = "his_usu_cod", referencedColumnName = "usu_cod")
