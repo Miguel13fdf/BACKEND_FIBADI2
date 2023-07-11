@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class Propietario {
 	
-	private Long pro_cod
-	private
+	private Long pro_cod;
+	private String nombre;
 
 }

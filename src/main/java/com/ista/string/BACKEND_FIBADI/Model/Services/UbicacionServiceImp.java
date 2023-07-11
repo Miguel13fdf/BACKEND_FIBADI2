@@ -37,7 +37,7 @@ public class UbicacionServiceImp implements IUbicacionService{
 
 	@Override
 	@Transactional
-	public void DeleteUbicacionlById(Long id_ubi) {
+	public void DeleteUbicacionById(Long id_ubi) {
 		ubicacionDao.deleteById(id_ubi);
 	}
 	

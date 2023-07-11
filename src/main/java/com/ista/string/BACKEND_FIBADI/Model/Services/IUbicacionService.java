@@ -12,5 +12,5 @@ public interface IUbicacionService {
 	
 	public Ubicacion findUbicacionById(Long id_ubi);
 	
-	public void DeleteUbicacionlById(Long id_ubi);
+	public void DeleteUbicacionById(Long id_ubi);
 }

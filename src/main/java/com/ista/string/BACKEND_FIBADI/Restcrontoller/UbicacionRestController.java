@@ -55,7 +55,7 @@ public class UbicacionRestController {
 	@DeleteMapping ("/ubicacion/{id}")
 	@ResponseStatus (HttpStatus.NO_CONTENT)
 	public void deleteUbicacion(@PathVariable("id") Long id_ubi) {
-		ubicacionService.DeleteUbicacionlById(id_ubi);
+		ubicacionService.DeleteUbicacionById(id_ubi);
 	}
 	
 }
