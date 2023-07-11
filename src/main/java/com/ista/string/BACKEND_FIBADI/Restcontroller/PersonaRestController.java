@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IPersonaService;
 @RestController
-@RequestMapping ("/Persona ")
+@RequestMapping ("/tecazuay")
 public class PersonaRestController {
 	@Autowired
 	private IPersonaService personaService;
