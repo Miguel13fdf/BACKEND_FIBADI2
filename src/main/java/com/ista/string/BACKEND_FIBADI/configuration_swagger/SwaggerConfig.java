@@ -2,6 +2,7 @@ package com.ista.string.BACKEND_FIBADI.configuration_swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import springfox.documentation.builders.PathSelectors;
@@ -13,6 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@CrossOrigin(origins = {"http://localhost:5432"})
 public class SwaggerConfig {
 	 @Bean
 	 Docket api() {

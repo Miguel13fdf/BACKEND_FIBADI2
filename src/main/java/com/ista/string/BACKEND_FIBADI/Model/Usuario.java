@@ -40,9 +40,9 @@ public class Usuario implements Serializable {
 	private Collection<Rol> roles;
 	
 	@Column (unique = true)
-	private String usu_usuario;
+	private String usuario;
 	
-	private String usu_contrasenia;
+	private String contrasenia;
 
 	private Boolean usu_estado;
 
@@ -62,20 +62,20 @@ public class Usuario implements Serializable {
 		this.persona = persona;
 	}
 
-	public String getUsu_usuario() {
-		return usu_usuario;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setUsu_usuario(String usu_usuario) {
-		this.usu_usuario = usu_usuario;
+	public void setUsu_usuario(String usuario) {
+		this.usuario = usuario;
 	}
 
-	public String getUsu_contrasenia() {
-		return usu_contrasenia;
+	public String getContrasenia() {
+		return contrasenia;
 	}
 
-	public void setUsu_contrasenia(String usu_contrasenia) {
-		this.usu_contrasenia = usu_contrasenia;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	public Boolean getUsu_estado() {

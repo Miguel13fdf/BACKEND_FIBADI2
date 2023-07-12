@@ -2,30 +2,21 @@ package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table (name = "historial")
 public class Historial implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5991494988133707854L;
 	
 	@Id
@@ -37,19 +28,14 @@ public class Historial implements Serializable {
 	private Date his_fecha;
 	
 	private String his_detalles;
-
-	/*
-	 * FK his_cus_cod
-	 * FK his_bie_cod
-	 * */
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn (name = "his_usu_cod", referencedColumnName = "usu_cod")
-	private List<Usuario> usuario;
+	private Usuario usuario;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn (name = "his_bie_cod", referencedColumnName = "bien_cod")
-	private List<Bien> bien;
+	private Bien bien;
 	
 	public Long getHis_cod() {
 		return his_cod;
@@ -75,19 +61,19 @@ public class Historial implements Serializable {
 		this.his_detalles = his_detalles;
 	}
 
-	public List<Usuario> getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(List<Usuario> usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
-	public List<Bien> getBien() {
+	public Bien getBien() {
 		return bien;
 	}
 
-	public void setBien(List<Bien> bien) {
+	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
 	
