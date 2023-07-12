@@ -37,11 +37,11 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     @Transactional
     public Usuario saveUsuario(Usuario usuario) {
-        usuario.setUsu_contrasenia(passwordEncoder.encode(usuario.getUsu_contrasenia()));
+        usuario.setContrasenia(passwordEncoder.encode(usuario.getContrasenia()));
 
         // Asignar el rol "admin" al usuario
         Rol rolAdmin = new Rol();
-        rolAdmin.setRol_nombre("admin");
+        //rolAdmin.setRol_nombre("admin");
 
         usuario.setRoles(Collections.singletonList(rolAdmin));
 
@@ -78,7 +78,16 @@ public class UsuarioServiceImp implements IUsuarioService {
                 .map(rol -> new SimpleGrantedAuthority(rol.getRol_nombre()))
                 .collect(Collectors.toList());
 
-        return new User(usuario.getUsu_usuario(), usuario.getUsu_contrasenia(), authorities);
+        return new User(usuario.getUsuario(), usuario.getContrasenia(), authorities);
     }
+
+	@Override
+	 @Transactional(readOnly = true)
+	public List<Usuario> findByUsuarioAndContrasenia(String usuario, String contrasenia) {
+		// TODO Auto-generated method stub
+		return  usuarioDao.findByUsuarioAndContrasenia(usuario, contrasenia);
+	}
+
+
 }
 

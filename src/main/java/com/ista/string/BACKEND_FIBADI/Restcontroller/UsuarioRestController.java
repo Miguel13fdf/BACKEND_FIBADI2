@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IUsuarioService;
-
+@CrossOrigin(origins = {"http://localhost:8080"})
 @RestController
 @RequestMapping ("/tecazuay")
 public class UsuarioRestController {
@@ -42,8 +43,8 @@ public class UsuarioRestController {
 	@PutMapping ("/usuarios/{id}")
 	public Usuario updateUser(@RequestBody Usuario usuario, @PathVariable("id") Long id_usu) {
 		Usuario usuarioActual = usuarioService.findUsuarioById(id_usu);
-		usuarioActual.setUsu_usuario(usuario.getUsu_usuario());
-		usuarioActual.setUsu_contrasenia(usuario.getUsu_contrasenia());
+		usuarioActual.setUsu_usuario(usuario.getUsuario());
+		usuarioActual.setContrasenia(usuario.getContrasenia());
 		usuarioActual.setPersona(usuario.getPersona());
 		usuarioActual.setUsu_estado(usuario.getUsu_estado());
 		
@@ -54,5 +55,13 @@ public class UsuarioRestController {
 	public Usuario findUserByCriterio(@RequestParam("criterio") String criterio) {
 	    return usuarioService.findUsuarioByCriterio(criterio);
 	}
-	
+	@PostMapping("/login/{usuario}/{contrasenia}")
+	public Usuario login(@RequestBody Usuario usuario) {
+		String login="ERROR";
+		List<Usuario> usuarios=usuarioService.findByUsuarioAndContrasenia(usuario.getUsuario(), usuario.getContrasenia());
+		if(!usuarios.isEmpty()) {
+			return usuarios.get(0);
+		}
+		return null;
+	}
 }
