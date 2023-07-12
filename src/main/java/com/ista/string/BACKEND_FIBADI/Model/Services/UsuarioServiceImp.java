@@ -6,12 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.ista.string.BACKEND_FIBADI.Dao.IUsuarioDao;
@@ -26,7 +21,7 @@ public class UsuarioServiceImp implements IUsuarioService {
     private IUsuarioDao usuarioDao;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+   // private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
@@ -37,7 +32,7 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     @Transactional
     public Usuario saveUsuario(Usuario usuario) {
-        usuario.setContrasenia(passwordEncoder.encode(usuario.getContrasenia()));
+        usuario.setContrasenia(usuario.getContrasenia());
 
         // Asignar el rol "admin" al usuario
         Rol rolAdmin = new Rol();
@@ -63,23 +58,7 @@ public class UsuarioServiceImp implements IUsuarioService {
         return usuarioDao.findAdministradoresByCriterio(criterio);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioDao.findAdministradoresByCriterio(username);
-        if (usuario == null) {
-            throw new UsernameNotFoundException("Usuario no válido");
-        }
-
-        // Obtener la colección de roles del usuario
-        Collection<Rol> roles = usuario.getRoles();
-
-        // Mapear los roles a una lista de autoridades
-        List<GrantedAuthority> authorities = roles.stream()
-                .map(rol -> new SimpleGrantedAuthority(rol.getRol_nombre()))
-                .collect(Collectors.toList());
-
-        return new User(usuario.getUsuario(), usuario.getContrasenia(), authorities);
-    }
+ 
 
 	@Override
 	 @Transactional(readOnly = true)
@@ -87,6 +66,8 @@ public class UsuarioServiceImp implements IUsuarioService {
 		// TODO Auto-generated method stub
 		return  usuarioDao.findByUsuarioAndContrasenia(usuario, contrasenia);
 	}
+
+	
 
 
 }

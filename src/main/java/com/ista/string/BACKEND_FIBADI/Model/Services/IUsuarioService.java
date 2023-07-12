@@ -2,11 +2,11 @@ package com.ista.string.BACKEND_FIBADI.Model.Services;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+
 
 import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 
-public interface IUsuarioService extends UserDetailsService {
+public interface IUsuarioService  {
 
 	public List<Usuario> ListAll();
 	

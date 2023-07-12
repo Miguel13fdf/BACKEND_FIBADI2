@@ -2,7 +2,7 @@ package com.ista.string.BACKEND_FIBADI.Model.Services;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+
 
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 
