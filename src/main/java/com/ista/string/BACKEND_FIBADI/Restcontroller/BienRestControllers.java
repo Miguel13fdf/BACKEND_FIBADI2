@@ -19,7 +19,7 @@ import com.ista.string.BACKEND_FIBADI.Model.Bien;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
 
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200"})
 @RestController
 @RequestMapping("/api")
 

@@ -16,4 +16,5 @@ public interface IUsuarioService extends UserDetailsService {
 		
 	public Usuario findUsuarioByCriterio(String criterio);
 	public  List<Usuario>findByUsuarioAndContrasenia(String usuario,String contrasenia );
+	public List<Usuario> findUsuariosWithPersonaAndRolByUsuarioAndContrasenia(String usuario, String contrasenia);
 }

@@ -87,6 +87,11 @@ public class UsuarioServiceImp implements IUsuarioService {
 		// TODO Auto-generated method stub
 		return  usuarioDao.findByUsuarioAndContrasenia(usuario, contrasenia);
 	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<Usuario> findUsuariosWithPersonaAndRolByUsuarioAndContrasenia(String usuario, String contrasenia) {
+		return usuarioDao.findUsuariosWithPersonaAndRolByUsuarioAndContrasenia(usuario, contrasenia);
+	}
 
 
 }

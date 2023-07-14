@@ -8,9 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 
-	@Query(value = "SELECT * FROM usuarios WHERE usu_usuario LIKE %:criterio%", nativeQuery = true)
+	@Query(value = "SELECT * FROM usuarios WHERE usuario LIKE %:criterio%", nativeQuery = true)
     Usuario findAdministradoresByCriterio(@Param("criterio") String criterio);
 	@Query(value = "SELECT * FROM usuarios WHERE usuario LIKE %:usuario% AND contrasenia LIKE %:contrasenia%", nativeQuery = true)
 	 List<Usuario>findByUsuarioAndContrasenia(@Param("usuario")String usuario,@Param("contrasenia")String contrasenia );
+	@Query(value = "SELECT u, p, r FROM Usuario u JOIN u.persona p JOIN u.roles r WHERE u.usuario LIKE %:usuario% AND u.contrasenia LIKE %:contrasenia%")
+	List<Usuario> findUsuariosWithPersonaAndRolByUsuarioAndContrasenia(@Param("usuario") String usuario, @Param("contrasenia") String contrasenia);
 
 }
