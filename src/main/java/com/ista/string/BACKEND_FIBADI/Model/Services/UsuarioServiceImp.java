@@ -25,8 +25,8 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Autowired
     private IUsuarioDao usuarioDao;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    //@Autowired
+   // private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     @Transactional(readOnly = true)
@@ -37,7 +37,7 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     @Transactional
     public Usuario saveUsuario(Usuario usuario) {
-        usuario.setContrasenia(passwordEncoder.encode(usuario.getContrasenia()));
+        usuario.setContrasenia(usuario.getContrasenia());
 
         // Asignar el rol "admin" al usuario
         Rol rolAdmin = new Rol();

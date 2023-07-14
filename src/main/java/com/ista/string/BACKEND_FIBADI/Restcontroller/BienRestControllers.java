@@ -57,7 +57,7 @@ public class BienRestControllers {
 			BienActual.setBien_codigoG(bien.getBien_codigoG());
 			BienActual.setBien_modelo(bien.getBien_modelo());
 			BienActual.setBien_marca(bien.getBien_marca());
-			BienActual.setBien_estado(bien.getBien_estadoA());
+			BienActual.setBien_estado(bien.getBien_estado());
 			BienActual.setBien_detalles(bien.getBien_detalles());
 			BienActual.setBien_descripcion(bien.getBien_descripcion());
 			BienActual.setBien_serie(bien.getBien_serie());
