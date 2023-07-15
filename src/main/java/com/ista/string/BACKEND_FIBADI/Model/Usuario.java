@@ -66,7 +66,7 @@ public class Usuario implements Serializable {
 		return usuario;
 	}
 
-	public void setUsu_usuario(String usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 

@@ -19,7 +19,7 @@ import com.ista.string.BACKEND_FIBADI.Model.Bien;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
 
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200"})
 @RestController
 @RequestMapping("/api")
 
@@ -57,7 +57,7 @@ public class BienRestControllers {
 			BienActual.setBien_codigoG(bien.getBien_codigoG());
 			BienActual.setBien_modelo(bien.getBien_modelo());
 			BienActual.setBien_marca(bien.getBien_marca());
-			BienActual.setBien_estado(bien.getBien_estadoA());
+			BienActual.setBien_estado(bien.getBien_estado());
 			BienActual.setBien_detalles(bien.getBien_detalles());
 			BienActual.setBien_descripcion(bien.getBien_descripcion());
 			BienActual.setBien_serie(bien.getBien_serie());

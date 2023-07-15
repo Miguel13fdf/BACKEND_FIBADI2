@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IUsuarioService;
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200", "http://192.168.43.211:4200"})
 @RestController
 @RequestMapping ("/tecazuay")
 public class UsuarioRestController {
@@ -43,7 +43,7 @@ public class UsuarioRestController {
 	@PutMapping ("/usuarios/{id}")
 	public Usuario updateUser(@RequestBody Usuario usuario, @PathVariable("id") Long id_usu) {
 		Usuario usuarioActual = usuarioService.findUsuarioById(id_usu);
-		usuarioActual.setUsu_usuario(usuario.getUsuario());
+		usuarioActual.setUsuario(usuario.getUsuario());
 		usuarioActual.setContrasenia(usuario.getContrasenia());
 		usuarioActual.setPersona(usuario.getPersona());
 		usuarioActual.setUsu_estado(usuario.getUsu_estado());
@@ -55,13 +55,19 @@ public class UsuarioRestController {
 	public Usuario findUserByCriterio(@RequestParam("criterio") String criterio) {
 	    return usuarioService.findUsuarioByCriterio(criterio);
 	}
-	@PostMapping("/login/{usuario}/{contrasenia}")
-	public Usuario login(@RequestBody Usuario usuario) {
-		String login="ERROR";
-		List<Usuario> usuarios=usuarioService.findByUsuarioAndContrasenia(usuario.getUsuario(), usuario.getContrasenia());
-		if(!usuarios.isEmpty()) {
-			return usuarios.get(0);
-		}
-		return null;
+	@PostMapping("/logina")
+	public Object login(@RequestBody Usuario usuario) {
+	    List<Usuario> usuarios = usuarioService.findByUsuarioAndContrasenia(usuario.getUsuario(), usuario.getContrasenia());
+	    if (!usuarios.isEmpty()) {
+	        Usuario usuarioEncontrado = usuarios.get(0);
+	        return usuarioEncontrado;
+	    } else {
+	        return "Inicio de sesión fallido";
+	    }
 	}
+	@GetMapping("/usuarios/datos-completos")
+	public List<Usuario> findUsuariosWithDatosCompletos(@RequestParam("usuario") String usuario, @RequestParam("contrasenia") String contrasenia) {
+	    return usuarioService.findUsuariosWithPersonaAndRolByUsuarioAndContrasenia(usuario, contrasenia);
+	}
+
 }

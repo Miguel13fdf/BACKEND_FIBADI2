@@ -32,7 +32,7 @@ public class Bien implements Serializable {
 	private String bien_serie;
 	private String bien_propietario;
 	private Double bien_precio;
-	private String bien_estadoA;
+	private Boolean bien_estadoA;
 	
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
@@ -41,6 +41,10 @@ public class Bien implements Serializable {
 	@ManyToOne
 	@JoinColumn (name = "bien_pro_cod", referencedColumnName = "pro_cod")
 	private Propietario propietario;
+	
+	@ManyToOne
+	@JoinColumn (name = "bien_cat_cod", referencedColumnName = "cat_cod")
+	private Categoria categoria;
 	
 	public Long getBien_cod() {
 		return bien_cod;
@@ -103,24 +107,35 @@ public class Bien implements Serializable {
 	public void setBien_precio(Double bien_precio) {
 		this.bien_precio = bien_precio;
 	}
-	public String getBien_estadoA() {
+	public Boolean getBien_estadoA() {
 		return bien_estadoA;
 	}
-	public void setBien_estadoA(String bien_estadoA) {
+	public void setBien_estadoA(Boolean bien_estadoA) {
 		this.bien_estadoA = bien_estadoA;
 	}
 	
 	public Ubicacion getUbicacion() {
 		return ubicacion;
 	}
+	
 	public void setUbicacion(Ubicacion ubicacion) {
 		this.ubicacion = ubicacion;
 	}
+	
 	public Propietario getPropietario() {
 		return propietario;
 	}
+	
 	public void setPropietario(Propietario propietario) {
 		this.propietario = propietario;
+	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 	
 }
