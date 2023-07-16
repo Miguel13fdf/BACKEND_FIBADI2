@@ -13,10 +13,14 @@ INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, 
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(1, 'DIAZ', 'HARO','0107186900', 'miguel.haro@tecazuay.edu.ec','2003-11-30', 'M', 'MIGUEL', 'ALEJANDRO', '0998501608');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Super Usuario');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Custodio');
+INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Rector');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1, 'admin', true, 'admin');
+INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1, 'rector', true, 'Rector');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (866, 'custodio1', true, 'gabriela.aguirre@tecazuay.edu.ec');
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 2);
+INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (3, 3);
 INSERT INTO CATEGORIA(cat_cod,cat_nombre,cat_descripcion,cat_estado) VALUES (1,'Inmuebles','Madera y de blanco',true)
 INSERT INTO UBICACIONES(ubi_cod,ubi_nombre, ubi_departamento, ubi_estado) values(1,'Maquinacion de Carpinteria','Lab-6',true);
-INSERT INTO BIENES (bien_cod, bien_codigoG, bien_modelo, bien_marca, bien_estado, bien_detalles, bien_descripcion, bien_serie, bien_propietario, bien_precio, bien_estadoA, bien_edi_cod,bien_cat_cod) VALUES (30778142, '###RSFDSF#####', '8120 0', 'FESTO', 'BUENO', 'MAQUINARIA Y EQUIPO', 'MAQUINARIA Y EQUIPO:1 BANCO MÓVIL PARA MÁQUINAS DESARMABLES 8120-0', '', 'BENAVIDEZ PADILLA DARIO JAVIER', 0.0, true, 1,1);
+INSERT INTO propietario (pro_direccion, pro_estado, pro_nombre, pro_telefono) VALUES ('Avenida 2', true, 'SENESCYT', '0987654321');
+INSERT INTO BIENES (bien_cod, bien_codigoG, bien_modelo, bien_marca, bien_estado, bien_detalles, bien_descripcion, bien_serie, bien_precio, bien_estadoA, bien_edi_cod, bien_cat_cod, bien_user_cod, bien_pro_cod) VALUES (30778142, '###RSFDSF#####', '8120 0', 'FESTO', 'BUENO', 'MAQUINARIA Y EQUIPO', 'MAQUINARIA Y EQUIPO:1 BANCO MÓVIL PARA MÁQUINAS DESARMABLES 8120-0', '', 0.0, true, 1,1,2,1);

@@ -21,7 +21,7 @@ import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
 
 @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200"})
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/tecazuay")
 
 public class BienRestControllers {
 	
@@ -61,10 +61,10 @@ public class BienRestControllers {
 			BienActual.setBien_detalles(bien.getBien_detalles());
 			BienActual.setBien_descripcion(bien.getBien_descripcion());
 			BienActual.setBien_serie(bien.getBien_serie());
-			BienActual.setBien_propietario(bien.getBien_propietario());
 			BienActual.setBien_precio(bien.getBien_precio());
 			BienActual.setBien_estadoA(bien.getBien_estadoA());
-
+			BienActual.setUsuario(bien.getUsuario());
+			
 			return bienServices.Save(BienActual);
 
 		}
