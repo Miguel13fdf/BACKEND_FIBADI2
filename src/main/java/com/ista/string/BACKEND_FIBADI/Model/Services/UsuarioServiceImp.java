@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.ista.string.BACKEND_FIBADI.Dao.IRolDao;
 import com.ista.string.BACKEND_FIBADI.Dao.IUsuarioDao;
 import com.ista.string.BACKEND_FIBADI.Model.Persona;
 import com.ista.string.BACKEND_FIBADI.Model.Rol;
@@ -24,6 +26,12 @@ public class UsuarioServiceImp implements IUsuarioService {
 
     @Autowired
     private IUsuarioDao usuarioDao;
+    
+    @Autowired
+    private IPersonaService personaService;
+    
+    @Autowired
+    private IRolDao rolDao;
 
     //@Autowired
    // private BCryptPasswordEncoder passwordEncoder;
@@ -37,18 +45,32 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     @Transactional
     public Usuario saveUsuario(Usuario usuario) {
-        usuario.setContrasenia(usuario.getContrasenia());
 
-        // Asignar el rol "admin" al usuario
+        /*// Asignar el rol "admin" al usuario
         Rol rolAdmin = new Rol();
         //rolAdmin.setRol_nombre("admin");
 
-        usuario.setRoles(Collections.singletonList(rolAdmin));
+        usuario.setRoles(Collections.singletonList(rolAdmin));*/
+    	System.out.println(usuario.getPersona());
+        if (usuario != null && usuario.getPersona() != null) {
+        	
+        	System.out.println(usuario.getPersona());
+            Persona personaRegistrada = personaService.savePersona(usuario.getPersona());
+            usuario.setPersona(personaRegistrada);
 
-        // Establecer el estado del usuario como true
-        usuario.setUsu_estado(true);
+            Long idRolDeseado = 2L; // ID del rol deseado
+            Rol rolDeseado = rolDao.findById(idRolDeseado).orElse(null);
 
-        return usuarioDao.save(usuario);
+            if (rolDeseado != null) {
+                // Asignar el rol deseado al usuario
+                usuario.setRoles(Collections.singletonList(rolDeseado));
+            }
+
+            usuario.setUsu_estado(true); // Establecer el estado del usuario como true
+            return usuarioDao.save(usuario);
+        }
+        
+        return null;
     }
 
     @Override
