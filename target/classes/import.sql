@@ -11,5 +11,11 @@ INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, 
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(915, 'URGILÉS', 'ORTIZ','0301162988', 'claudio.ortiz@tecazuay.edu.ec','1970-02-04', 'M', 'CLAUDIO', 'FERNANDO', '0988818368');
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(1749, 'MARIÑO', 'ELHABIL','0105704597', 'catherine.elhabil@tecazuay.edu.ec','1987-12-08', 'F', 'CATHERINE', 'CUMANDA', '0979195915');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Super Usuario');
-INSERT INTO USUARIOS (usu_per_cod, usu_contrasenia, usu_estado, usu_usuario) values (902, 'admin', true, 'admin');
+INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Custodio');
+INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (902, 'admin', true, 'admin');
+INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (866, 'custodio1', true, 'gabriela.aguirre@tecazuay.edu.ec');
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
+INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 2);
+INSERT INTO CATEGORIA(cat_cod,cat_nombre,cat_descripcion,cat_estado) VALUES (1,'Inmuebles','Madera y de blanco',true)
+INSERT INTO UBICACIONES(ubi_cod,ubi_nombre, ubi_departamento, ubi_estado) values(1,'Maquinacion de Carpinteria','Lab-6',true);
+INSERT INTO BIENES (bien_cod, bien_codigoG, bien_modelo, bien_marca, bien_estado, bien_detalles, bien_descripcion, bien_serie, bien_propietario, bien_precio, bien_estadoA, bien_edi_cod,bien_cat_cod) VALUES (30778142, '###RSFDSF#####', '8120 0', 'FESTO', 'BUENO', 'MAQUINARIA Y EQUIPO', 'MAQUINARIA Y EQUIPO:1 BANCO MÓVIL PARA MÁQUINAS DESARMABLES 8120-0', '', 'BENAVIDEZ PADILLA DARIO JAVIER', 0.0, true, 1,1);
