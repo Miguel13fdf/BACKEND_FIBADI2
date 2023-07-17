@@ -64,7 +64,7 @@ public class BienRestControllers {
 			BienActual.setBien_precio(bien.getBien_precio());
 			BienActual.setBien_estadoA(bien.getBien_estadoA());
 			BienActual.setUsuario(bien.getUsuario());
-			
+			BienActual.setBien_estado_asignado(bien.getBien_estado_asignado());
 			return bienServices.Save(BienActual);
 
 		}

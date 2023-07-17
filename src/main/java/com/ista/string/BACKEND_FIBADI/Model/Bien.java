@@ -32,7 +32,8 @@ public class Bien implements Serializable {
 	private String bien_serie;
 	private Double bien_precio;
 	private Boolean bien_estadoA;
-	
+	private Boolean bien_estado_asignado;
+
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
 	private Ubicacion ubicacion;
@@ -139,6 +140,12 @@ public class Bien implements Serializable {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	public Boolean getBien_estado_asignado() {
+		return bien_estado_asignado;
+	}
+	public void setBien_estado_asignado(Boolean bien_estado_asignado) {
+		this.bien_estado_asignado = bien_estado_asignado;
 	}
 	
 }
