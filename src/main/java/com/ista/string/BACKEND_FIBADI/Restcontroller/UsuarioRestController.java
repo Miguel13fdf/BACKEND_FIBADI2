@@ -40,6 +40,12 @@ public class UsuarioRestController {
 		return usuarioService.saveUsuario(usuario);
 	}
 	
+	@PostMapping("/users")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Usuario createPerson(@RequestBody Usuario usuario) {
+		return usuarioService.savePerson(usuario);
+	}
+	
 	@PutMapping ("/usuarios/{id}")
 	public Usuario updateUser(@RequestBody Usuario usuario, @PathVariable("id") Long id_usu) {
 		Usuario usuarioActual = usuarioService.findUsuarioById(id_usu);
