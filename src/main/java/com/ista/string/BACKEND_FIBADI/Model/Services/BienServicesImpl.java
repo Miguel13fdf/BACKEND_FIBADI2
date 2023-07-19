@@ -43,5 +43,9 @@ public class BienServicesImpl implements IBienServices {
 		BienDao.deleteById(bien_cod);
 		
 	}
+	 @Override
+	    public List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia) {
+	        return BienDao.findByUsuarioAndContrasenia(usuario, contrasenia);
+	        }
 
 }

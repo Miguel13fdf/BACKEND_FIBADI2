@@ -9,9 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table (name="bienes")
+@Table(name = "bienes", uniqueConstraints = @UniqueConstraint(columnNames = { "bien_codigoG" }))
 public class Bien implements Serializable {
 	
 	/**
@@ -149,3 +150,4 @@ public class Bien implements Serializable {
 	}
 	
 }
+

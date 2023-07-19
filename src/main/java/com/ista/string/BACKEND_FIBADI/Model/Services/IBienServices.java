@@ -11,5 +11,6 @@ public interface IBienServices {
 	public Bien Save (Bien bien);
 	public Bien findById(Long bien_cod);
 	public void delete(Long bien_cod);
+    List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
 
 }
