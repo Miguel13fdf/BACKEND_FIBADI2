@@ -18,5 +18,6 @@ public interface IBienServices {
 	public Bien findBienByCedulaCustodio(String cedula);
 	
 	public Bien findBienByCategoria(String categoria);
+	 List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
 
 }
