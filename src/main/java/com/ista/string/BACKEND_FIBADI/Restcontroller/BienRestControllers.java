@@ -90,4 +90,9 @@ public class BienRestControllers {
 		public List<Bien> findBienByCategoria(@RequestParam("categoria") String categoria) {
 			return bienServices.findBienByCategoria(categoria);
 		}
+		
+		@GetMapping("/bien/argument")
+		public List<Bien> findBienesByArgument(@RequestParam("argument") String argument) {
+			return bienServices.findBienByCategoria(argument);
+		}
 }

@@ -21,4 +21,6 @@ public interface IBienServices {
 	
 	List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
 
+	public List<Bien> findBienesByArgument(String argument);
+	
 }
