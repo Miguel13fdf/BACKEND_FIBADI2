@@ -37,20 +37,21 @@ public class BienServicesImpl implements IBienServices {
 		BienDao.deleteById(bien_cod);
 		
 	}
-	 @Override
-	    public List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia) {
-	        return BienDao.findByUsuarioAndContrasenia(usuario, contrasenia);
-	        }
+	
+	@Override
+    public List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia) {
+        return BienDao.findByUsuarioAndContrasenia(usuario, contrasenia);
+    }
 
 	@Override
 	@Transactional(readOnly=true)
-	public Bien findBienByCedulaCustodio(String cedula) {
+	public List<Bien> findBienByCedulaCustodio(String cedula) {
 		return BienDao.findBienByCedulaCustodio(cedula);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public Bien findBienByCategoria(String categoria) {
+	public List<Bien> findBienByCategoria(String categoria) {
 		return BienDao.findBienByCategoria(categoria);
 	}
 
