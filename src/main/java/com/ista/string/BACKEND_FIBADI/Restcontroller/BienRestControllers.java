@@ -93,6 +93,6 @@ public class BienRestControllers {
 		
 		@GetMapping("/bien/argument")
 		public List<Bien> findBienesByArgument(@RequestParam("argument") String argument) {
-			return bienServices.findBienByCategoria(argument);
+			return bienServices.findBienesByArgument(argument);
 		}
 }
