@@ -75,7 +75,7 @@ public class BienRestControllers {
 			bienServices.delete(bien_cod);
 		}
 		// Obtener bienes por usuario y contraseña
-	    @GetMapping("/bienes/usuario-contrasenia")
+	    @GetMapping("/bien/usuario-contrasenia")
 	    public List<Bien> obtenerBienesPorUsuarioYContrasenia(@RequestParam("usuario") String usuario,
 	                                                          @RequestParam("contrasenia") String contrasenia) {
 	        return bienServices.getBienesPorUsuarioYContrasenia(usuario, contrasenia);
