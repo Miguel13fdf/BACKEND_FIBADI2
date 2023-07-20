@@ -15,9 +15,10 @@ public interface IBienServices {
 	
 	public void delete(Long bien_cod);
 	
-	public Bien findBienByCedulaCustodio(String cedula);
+	public List<Bien> findBienByCedulaCustodio(String cedula);
 	
-	public Bien findBienByCategoria(String categoria);
-	 List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
+	public List<Bien> findBienByCategoria(String categoria);
+	
+	List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
 
 }

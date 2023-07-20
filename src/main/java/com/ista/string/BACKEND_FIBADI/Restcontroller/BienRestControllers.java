@@ -82,12 +82,12 @@ public class BienRestControllers {
 	    }
 
 		@GetMapping("/bien/cedula")
-		public Bien findBienByCedula(@RequestParam("cedula") String cedula) {
+		public List<Bien> findBienByCedula(@RequestParam("cedula") String cedula) {
 			return bienServices.findBienByCedulaCustodio(cedula);
 		}
 		
 		@GetMapping("/bien/categoria")
-		public Bien findBienByCategoria(@RequestParam("categoria") String categoria) {
+		public List<Bien> findBienByCategoria(@RequestParam("categoria") String categoria) {
 			return bienServices.findBienByCategoria(categoria);
 		}
 }
