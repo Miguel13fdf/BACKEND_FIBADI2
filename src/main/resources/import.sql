@@ -20,6 +20,7 @@ INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (866
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 2);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (3, 3);
+INSERT INTO ADMINISTRADORES(adm_cod, adm_contrasenia, adm_estado, adm_usuario) values (1, '1234', true, 'Juan');
 INSERT INTO CATEGORIA(cat_cod,cat_nombre,cat_descripcion,cat_estado) VALUES (1,'Inmuebles','Madera y de blanco',true)
 INSERT INTO UBICACIONES(ubi_cod,ubi_nombre, ubi_departamento, ubi_estado) values(1,'Maquinacion de Carpinteria','Lab-6',true);
 INSERT INTO propietario (pro_direccion, pro_estado, pro_nombre, pro_telefono) VALUES ('Avenida 2', true, 'SENESCYT', '0987654321');
