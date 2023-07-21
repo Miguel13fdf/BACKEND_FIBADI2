@@ -82,6 +82,39 @@ public class UsuarioServiceImp implements IUsuarioService {
 
 	    return null;
 	}
+	
+	@Override
+	@Transactional
+	public Usuario savePerson(Usuario usuario) {
+	    if (usuario != null && usuario.getPersona() != null) {
+	        try {
+	        	// Validación previa para evitar duplicados
+	        	if (usuarioDao.existsByCedulaOrUser(usuario.getUsuario(), usuario.getPersona().getPerCedula(), usuario.getPersona().getPerEmail()) != null) {
+	        	    System.out.println("El usuario ya existe en la base de datos.");
+	        	    return null;
+	        	}
+
+	            Persona personaRegistrada = personaService.savePersona(usuario.getPersona());
+	            usuario.setPersona(personaRegistrada);
+	            
+	            System.out.print(usuario.getRoles());
+
+	            usuario.setUsu_estado(true); // Establecer el estado del usuario como true
+	            return usuarioDao.save(usuario);
+	        } catch (DataIntegrityViolationException ex) {
+	            System.out.println("Error de violación de integridad de datos: " + ex.getMessage());
+	            return null;
+	        } catch (ConstraintViolationException ex) {
+	            System.out.println("Error de violación de restricción de unicidad: " + ex.getMessage());
+	            return null;
+	        } catch (Exception ex) {
+	            System.out.println("Error desconocido durante el guardado del usuario: " + ex.getMessage());
+	            return null;
+	        }
+	    }
+
+	    return null;
+	}
 
 
 	@Override

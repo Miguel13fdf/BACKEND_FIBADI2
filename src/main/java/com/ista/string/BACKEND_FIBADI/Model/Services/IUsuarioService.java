@@ -12,6 +12,8 @@ public interface IUsuarioService extends UserDetailsService {
 	
 	public Usuario saveUsuario(Usuario usuario);
 	
+	public Usuario savePerson(Usuario usuario);
+	
 	public Usuario findUsuarioById(Long id_usu);
 		
 	public Usuario findUsuarioByCriterio(String criterio);

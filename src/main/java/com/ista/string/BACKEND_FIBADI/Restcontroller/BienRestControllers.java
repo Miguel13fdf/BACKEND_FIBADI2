@@ -12,23 +12,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.ista.string.BACKEND_FIBADI.Model.Bien;
+import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
+import com.ista.string.BACKEND_FIBADI.Model.Services.IHistorialService;
+import com.ista.string.BACKEND_FIBADI.Model.Services.HistorialServiceImp;
+import java.util.Date;
 
-
-@CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200"})
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/tecazuay")
-
 public class BienRestControllers {
 	
 	@Autowired
-	
 	private IBienServices bienServices;
-	
+	 @Autowired
+	    private IHistorialService historialService;
 	// listar todos los bienes
 		@GetMapping("/bien")
 		public List<Bien> index() {
@@ -45,7 +47,15 @@ public class BienRestControllers {
 		@PostMapping("/bien")
 		@ResponseStatus(HttpStatus.CREATED)
 		public Bien create(@RequestBody Bien bien) {
-			return bienServices.Save(bien);
+			 Bien nuevoBien = bienServices.Save(bien);
+
+		        Usuario usuarioDelBien = nuevoBien.getUsuario();
+		        String detalles = "Se ha creado un nuevo bien.";
+		        Date fechaActual = new Date();
+		        historialService.saveInHistorial(nuevoBien, usuarioDelBien, detalles, fechaActual);
+
+		        return nuevoBien;
+			//return bienServices.Save(bien);
 		}
 
 		// editar un bien
@@ -64,9 +74,11 @@ public class BienRestControllers {
 			BienActual.setBien_precio(bien.getBien_precio());
 			BienActual.setBien_estadoA(bien.getBien_estadoA());
 			BienActual.setUsuario(bien.getUsuario());
+			BienActual.setUbicacion(bien.getUbicacion());
+			BienActual.setPropietario(bien.getPropietario());
+			BienActual.setCategoria(bien.getCategoria());
 			BienActual.setBien_estado_asignado(bien.getBien_estado_asignado());
 			return bienServices.Save(BienActual);
-
 		}
 
 		// eliminar un cliente
@@ -75,5 +87,25 @@ public class BienRestControllers {
 		public void delete(@PathVariable Long bien_cod) {
 			bienServices.delete(bien_cod);
 		}
+		// Obtener bienes por usuario y contraseña
+	    @GetMapping("/bien/usuario-contrasenia")
+	    public List<Bien> obtenerBienesPorUsuarioYContrasenia(@RequestParam("usuario") String usuario,
+	                                                          @RequestParam("contrasenia") String contrasenia) {
+	        return bienServices.getBienesPorUsuarioYContrasenia(usuario, contrasenia);
+	    }
 
+		@GetMapping("/bien/cedula")
+		public List<Bien> findBienByCedula(@RequestParam("cedula") String cedula) {
+			return bienServices.findBienByCedulaCustodio(cedula);
+		}
+		
+		@GetMapping("/bien/categoria")
+		public List<Bien> findBienByCategoria(@RequestParam("categoria") String categoria) {
+			return bienServices.findBienByCategoria(categoria);
+		}
+		
+		@GetMapping("/bien/argument")
+		public List<Bien> findBienesByArgument(@RequestParam("argument") String argument) {
+			return bienServices.findBienesByArgument(argument);
+		}
 }
