@@ -34,7 +34,6 @@ public class Bien implements Serializable {
 	private Double bien_precio;
 	private Boolean bien_estadoA;
 	private Boolean bien_estado_asignado;
-
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
 	private Ubicacion ubicacion;
