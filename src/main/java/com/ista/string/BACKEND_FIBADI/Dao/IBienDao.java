@@ -25,4 +25,7 @@ public interface IBienDao extends CrudRepository<Bien, Long>{
 			+ "	INNER JOIN CATEGORIA c ON (b.bien_cat_cod = c.cat_cod)\r\n "
 			+ "WHERE u.ubi_nombre LIKE %:argument% OR c.cat_nombre LIKE %:argument%", nativeQuery = true)
 	List<Bien> findBienesByArgument(@Param("argument") String argument);
+	
+	@Query("SELECT b FROM Bien b WHERE b.bien_codigoG = :codigoBarras")
+    Bien findByBienCodigoG(@Param("codigoBarras") String codigoBarras);
 }
