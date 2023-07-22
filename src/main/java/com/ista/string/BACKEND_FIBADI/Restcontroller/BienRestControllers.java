@@ -16,11 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Bien;
-import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
-import com.ista.string.BACKEND_FIBADI.Model.Services.IHistorialService;
-import com.ista.string.BACKEND_FIBADI.Model.Services.HistorialServiceImp;
-import java.util.Date;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -29,8 +25,7 @@ public class BienRestControllers {
 	
 	@Autowired
 	private IBienServices bienServices;
-	 @Autowired
-	    private IHistorialService historialService;
+	
 	// listar todos los bienes
 		@GetMapping("/bien")
 		public List<Bien> index() {
@@ -47,15 +42,7 @@ public class BienRestControllers {
 		@PostMapping("/bien")
 		@ResponseStatus(HttpStatus.CREATED)
 		public Bien create(@RequestBody Bien bien) {
-			 Bien nuevoBien = bienServices.Save(bien);
-
-		        Usuario usuarioDelBien = nuevoBien.getUsuario();
-		        String detalles = "Se ha creado un nuevo bien.";
-		        Date fechaActual = new Date();
-		        historialService.saveInHistorial(nuevoBien, usuarioDelBien, detalles, fechaActual);
-
-		        return nuevoBien;
-			//return bienServices.Save(bien);
+			return bienServices.Save(bien);
 		}
 
 		// editar un bien

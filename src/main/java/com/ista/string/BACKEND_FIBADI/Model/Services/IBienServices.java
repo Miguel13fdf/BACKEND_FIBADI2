@@ -1,10 +1,8 @@
 package com.ista.string.BACKEND_FIBADI.Model.Services;
 
-
 import java.util.List;
 
 import com.ista.string.BACKEND_FIBADI.Model.Bien;
-
 
 
 public interface IBienServices {
@@ -24,6 +22,5 @@ public interface IBienServices {
 	List<Bien> getBienesPorUsuarioYContrasenia(String usuario, String contrasenia);
 
 	public List<Bien> findBienesByArgument(String argument);
-	
 	
 }

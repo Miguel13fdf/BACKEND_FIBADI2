@@ -76,18 +76,5 @@ public class Historial implements Serializable {
 	public void setBien(Bien bien) {
 		this.bien = bien;
 	}
-
-	public Historial(Date his_fecha, String his_detalles, Usuario usuario, Bien bien) {
-		super();
-		this.his_fecha = his_fecha;
-		this.his_detalles = his_detalles;
-		this.usuario = usuario;
-		this.bien = bien;
-	}
-
-	public Historial() {
-		
-	}
-	
 	
 }
