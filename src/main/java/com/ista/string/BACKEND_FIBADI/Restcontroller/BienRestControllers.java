@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -109,23 +108,4 @@ public class BienRestControllers {
 		public List<Bien> findBienesByArgument(@RequestParam("argument") String argument) {
 			return bienServices.findBienesByArgument(argument);
 		}
-		
-		@GetMapping("/bien/codigo-barras")
-	    public ResponseEntity<Bien> obtenerDatosBienPorCodigoBarras(@RequestParam("codigoBarras") String codigoBarras) {
-	        // Buscar el bien por código de barras en la base de datos
-	        Bien bien = bienServices.findByCodigoBarras(codigoBarras);
-	        
-	        if (bien != null) {
-	            // Actualizar el estado de bien_estadoA a true
-	            bien.setBien_estadoA(true);
-	            // Guardar el cambio en la base de datos
-	            bienServices.Save(bien);
-	            
-	            // Devolver los datos del bien a la app
-	            return ResponseEntity.ok(bien);
-	        } else {
-	            // Si no se encuentra el bien, devolver un código de respuesta 404
-	            return ResponseEntity.notFound().build();
-	        }
-	    }
 }

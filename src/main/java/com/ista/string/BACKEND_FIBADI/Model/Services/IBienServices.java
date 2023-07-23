@@ -25,5 +25,5 @@ public interface IBienServices {
 
 	public List<Bien> findBienesByArgument(String argument);
 	
-	 Bien findByCodigoBarras(String codigoBarras);
+	
 }
