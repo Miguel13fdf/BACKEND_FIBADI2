@@ -34,6 +34,7 @@ public class Bien implements Serializable {
 	private Double bien_precio;
 	private Boolean bien_estadoA;
 	private Boolean bien_estado_asignado;
+	private String bien_descripcion_lugar;
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
 	private Ubicacion ubicacion;
@@ -146,6 +147,12 @@ public class Bien implements Serializable {
 	}
 	public void setBien_estado_asignado(Boolean bien_estado_asignado) {
 		this.bien_estado_asignado = bien_estado_asignado;
+	}
+	public String getBien_descripcion_lugar() {
+		return bien_descripcion_lugar;
+	}
+	public void setBien_descripcion_lugar(String bien_descripcion_lugar) {
+		this.bien_descripcion_lugar = bien_descripcion_lugar;
 	}
 	
 }
