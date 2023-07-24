@@ -40,5 +40,9 @@ public class UbicacionServiceImp implements IUbicacionService{
 	public void DeleteUbicacionlById(Long id_ubi) {
 		ubicacionDao.deleteById(id_ubi);
 	}
+	  @Override
+	    public List<Ubicacion> findByDepartamentoContaining(String departamento) {
+	        return ubicacionDao.findByDepartamentoContaining(departamento);
+	    }
 	
 }

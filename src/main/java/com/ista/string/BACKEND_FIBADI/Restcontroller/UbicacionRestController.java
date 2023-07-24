@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -48,7 +49,7 @@ public class UbicacionRestController {
 	@PutMapping ("/ubicacion/{id}")
 	public Ubicacion updateUbicacion(@RequestBody Ubicacion ubicacion, @PathVariable("id") Long id_ubi) {
 		Ubicacion ubicacionActual = ubicacionService.findUbicacionById(id_ubi);
-		ubicacionActual.setUbi_departamento(ubicacion.getUbi_departamento());
+		ubicacionActual.setDepartamento(ubicacion.getDepartamento());
 		ubicacionActual.setUbi_nombre(ubicacion.getUbi_nombre());
 		ubicacionActual.setUbi_estado(ubicacion.getUbi_estado());		
 		return  ubicacionService.saveUbicacion(ubicacionActual);
@@ -60,5 +61,10 @@ public class UbicacionRestController {
 	public void deleteUbicacion(@PathVariable("id") Long id_ubi) {
 		ubicacionService.DeleteUbicacionlById(id_ubi);
 	}
+	  @GetMapping("/ubicacion/departamento")
+	    public List<Ubicacion> findUbicacionesByDepartamento(@RequestParam("departamento") String departamento) {
+	        return ubicacionService.findByDepartamentoContaining(departamento);
+	    }
+	
 	
 }

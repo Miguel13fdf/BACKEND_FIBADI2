@@ -20,7 +20,7 @@ public class Ubicacion implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long ubi_cod;
 	private String ubi_nombre;
-	private String ubi_departamento;
+	private String departamento;
 	private Boolean ubi_estado;
 
 	public Long getUbi_cod() {
@@ -39,12 +39,12 @@ public class Ubicacion implements Serializable{
 		this.ubi_nombre = ubi_nombre;
 	}
 
-	public String getUbi_departamento() {
-		return ubi_departamento;
+	public String getDepartamento() {
+		return departamento;
 	}
 
-	public void setUbi_departamento(String ubi_departamento) {
-		this.ubi_departamento = ubi_departamento;
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
 	}
 
 	public Boolean getUbi_estado() {
