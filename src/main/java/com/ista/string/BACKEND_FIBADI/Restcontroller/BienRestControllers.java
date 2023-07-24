@@ -110,6 +110,11 @@ public class BienRestControllers {
 			return bienServices.findBienesByArgument(argument);
 		}
 		
+		@GetMapping("/bien/argument2")
+		public List<Bien> findBienesByArgument2(@RequestParam("argument2") String argument2) {
+			return bienServices.findBienesByArgument(argument2);
+		}
+		
 		@GetMapping("/bien/codigo-barras")
 	    public ResponseEntity<Bien> obtenerDatosBienPorCodigoBarras(@RequestParam("codigoBarras") String codigoBarras) {
 	        // Buscar el bien por código de barras en la base de datos

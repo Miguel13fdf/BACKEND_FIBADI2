@@ -63,6 +63,11 @@ public class BienServicesImpl implements IBienServices {
 	public List<Bien> findBienesByArgument(String argument) {
 		return BienDao.findBienesByArgument(argument);
 	}
+	@Override
+	@Transactional(readOnly=true)
+	public List<Bien> findBienesByArgument2(String argument2) {
+		return BienDao.findBienesByArgument(argument2);
+	}
 	
 	@Override
     @Transactional(readOnly=true)
