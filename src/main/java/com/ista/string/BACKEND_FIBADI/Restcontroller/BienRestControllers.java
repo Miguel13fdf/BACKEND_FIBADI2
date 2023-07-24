@@ -20,7 +20,7 @@ import com.ista.string.BACKEND_FIBADI.Model.Bien;
 import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IBienServices;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IHistorialService;
-import com.ista.string.BACKEND_FIBADI.Model.Services.HistorialServiceImp;
+import com.ista.string.BACKEND_FIBADI.Model.request.UdescripcionLugarRequest;
 import java.util.Date;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
@@ -116,15 +116,25 @@ public class BienRestControllers {
 	        Bien bien = bienServices.findByCodigoBarras(codigoBarras);
 	        
 	        if (bien != null) {
-	            // Actualizar el estado de bien_estadoA a true
 	            bien.setBien_estadoA(true);
-	            // Guardar el cambio en la base de datos
 	            bienServices.Save(bien);
-	            
-	            // Devolver los datos del bien a la app
 	            return ResponseEntity.ok(bien);
 	        } else {
-	            // Si no se encuentra el bien, devolver un código de respuesta 404
+	            return ResponseEntity.notFound().build();
+	        }
+	    }
+		@PutMapping("/bien/actualizar-descripcion-lugar/{bien_codigoG}")
+	    public ResponseEntity<Bien> actualizarDescripcionLugar(@RequestBody UdescripcionLugarRequest request) {
+	        String bienCodigoG = request.getBien_codigoG();
+	        String nuevaDescripcionLugar = request.getBien_descripcion_lugar();
+
+	        Bien bien = bienServices.findByCodigoBarras(bienCodigoG);
+
+	        if (bien != null) {
+	            bien.setBien_descripcion_lugar(nuevaDescripcionLugar);
+	            bienServices.Save(bien);
+	            return ResponseEntity.ok(bien);
+	        } else {
 	            return ResponseEntity.notFound().build();
 	        }
 	    }

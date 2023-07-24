@@ -1,6 +1,5 @@
 package com.ista.string.BACKEND_FIBADI.Model.Services;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ista.string.BACKEND_FIBADI.Dao.IBienDao;
 import com.ista.string.BACKEND_FIBADI.Model.Bien;
-import com.ista.string.BACKEND_FIBADI.Model.Usuario;
-import com.ista.string.BACKEND_FIBADI.Model.Historial;
 
 @Service
 public class BienServicesImpl implements IBienServices {

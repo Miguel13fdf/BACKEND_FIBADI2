@@ -21,6 +21,7 @@ INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 2);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (3, 3);
 INSERT INTO CATEGORIA(cat_cod,cat_nombre,cat_descripcion,cat_estado) VALUES (1,'Inmuebles','Madera y de blanco',true)
-INSERT INTO UBICACIONES(ubi_cod,ubi_nombre, ubi_departamento, ubi_estado) values(1,'Maquinacion de Carpinteria','Lab-6',true);
+INSERT INTO UBICACIONES(ubi_cod,ubi_nombre, departamento, ubi_estado) values(1,'Maquinacion de Carpinteria','Lab-6',true);
 INSERT INTO propietario (pro_direccion, pro_estado, pro_nombre, pro_telefono) VALUES ('Avenida 2', true, 'SENESCYT', '0987654321');
 INSERT INTO BIENES (bien_cod, bien_codigoG, bien_modelo, bien_marca, bien_estado, bien_detalles, bien_descripcion, bien_serie, bien_precio, bien_estadoA, bien_edi_cod, bien_cat_cod, bien_user_cod, bien_pro_cod) VALUES (30778142, '###RSFDSF#####', '8120 0', 'FESTO', 'BUENO', 'MAQUINARIA Y EQUIPO', 'MAQUINARIA Y EQUIPO:1 BANCO MÓVIL PARA MÁQUINAS DESARMABLES 8120-0', '', 0.0, true, 1,1,2,1);
+INSERT INTO BIENES (bien_cod, bien_codigoG, bien_modelo, bien_marca, bien_estado, bien_detalles, bien_descripcion, bien_serie, bien_precio, bien_estadoA, bien_edi_cod, bien_cat_cod, bien_user_cod, bien_pro_cod) VALUES (30998141, '###hgfd#####', '81420 0', 'FESTO', 'MALO', 'MAQUINARIA Y EQUIPO', 'MAQUINARIA Y EQUIPO:1 BANCO MÓVIL PARA MÁQUINAS DESARMABLES 8120-0', '', 0.0, false, 1,1,2,1);
