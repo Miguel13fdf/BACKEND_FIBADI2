@@ -71,6 +71,23 @@ public class BienServicesImpl implements IBienServices {
     public Bien findByCodigoBarras(String codigoBarras) {
         return BienDao.findByBienCodigoG(codigoBarras);
     }
+	@Override
+	public void actualizarFechaenBienes(int intervalo) {
+		// TODO Auto-generated method stub
+		
+		List<Bien> bienes = findAll();
+		for (Bien bien : bienes) {
+			bien.setBien_intervalo(intervalo);
+			
+		}
+		BienDao.saveAll(bienes);
+	}
+
+	@Override
+	public List<Bien> findBienesFechDesc() {
+		// TODO Auto-generated method stub
+		return (List<Bien>)BienDao.findBienesFechDesc();
+	}
 	
 	
 	  

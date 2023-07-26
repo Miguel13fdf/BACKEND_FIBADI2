@@ -1,6 +1,7 @@
 package com.ista.string.BACKEND_FIBADI.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,9 @@ public class Bien implements Serializable {
 	private Boolean bien_estadoA;
 	private Boolean bien_estado_asignado;
 	private String bien_descripcion_lugar;
+	private Date bien_fecha_consta;
+	
+	private Integer bien_intervalo;
 	@ManyToOne
 	@JoinColumn (name = "bien_edi_cod", referencedColumnName = "ubi_cod")
 	private Ubicacion ubicacion;
@@ -154,6 +158,19 @@ public class Bien implements Serializable {
 	public void setBien_descripcion_lugar(String bien_descripcion_lugar) {
 		this.bien_descripcion_lugar = bien_descripcion_lugar;
 	}
+	public Date getBien_fecha_consta() {
+		return bien_fecha_consta;
+	}
+	public void setBien_fecha_consta(Date bien_fecha_consta) {
+		this.bien_fecha_consta = bien_fecha_consta;
+	}
+	public Integer  getBien_intervalo() {
+		return bien_intervalo;
+	}
+	public void setBien_intervalo(Integer  bien_intervalo) {
+		this.bien_intervalo = bien_intervalo;
+	}
+	
 	
 }
 

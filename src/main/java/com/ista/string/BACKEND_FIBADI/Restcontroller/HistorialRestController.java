@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.ista.string.BACKEND_FIBADI.Model.Historial;
+import com.ista.string.BACKEND_FIBADI.Model.Usuario;
 import com.ista.string.BACKEND_FIBADI.Model.Services.IHistorialService;
 
 @CrossOrigin(origins = {"http://localhost:4200", "http://192.168.20.176:4200"})
@@ -56,6 +57,10 @@ public class HistorialRestController {
 	public void deleteHistorial(@PathVariable("id") Long id_his) {
 		historialService.DeleteHistorialById(id_his);
 	}*/
+	 @PostMapping("/actividadrecs/")
+	    public List<Historial> findByUsuario(@RequestBody Usuario usuario ) {
+	        return historialService.findByUsuario(usuario);
+	    }
 	
 	
 }

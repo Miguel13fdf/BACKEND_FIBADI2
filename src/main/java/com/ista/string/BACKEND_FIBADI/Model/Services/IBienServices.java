@@ -27,4 +27,8 @@ public interface IBienServices {
 	public List<Bien> findBienesByArgument2(String argument2);
 	
 	 Bien findByCodigoBarras(String codigoBarras);
+	 
+	 
+	 public void actualizarFechaenBienes(int intervalo);
+		public List<Bien> findBienesFechDesc ();
 }

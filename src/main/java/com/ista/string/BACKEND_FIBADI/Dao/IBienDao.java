@@ -34,4 +34,7 @@ public interface IBienDao extends CrudRepository<Bien, Long>{
 	
 	@Query("SELECT b FROM Bien b WHERE b.bien_codigoG = :codigoBarras")
     Bien findByBienCodigoG(@Param("codigoBarras") String codigoBarras);
+	
+	@Query(value = "SELECT * FROM bienes WHERE bien_fecha_consta >= CURRENT_DATE ORDER BY ABS(bien_fecha_consta - CURRENT_DATE) LIMIT 5", nativeQuery = true)
+    List<Bien> findBienesFechDesc();
 }

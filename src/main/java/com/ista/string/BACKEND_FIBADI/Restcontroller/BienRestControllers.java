@@ -44,20 +44,19 @@ public class BienRestControllers {
 			return bienServices.findById(bien_cod);
 		}
 
-		// guardar un bien
 		@PostMapping("/bien")
 		@ResponseStatus(HttpStatus.CREATED)
 		public Bien create(@RequestBody Bien bien) {
-			 Bien nuevoBien = bienServices.Save(bien);
+		    Bien nuevoBien = bienServices.Save(bien);
 
-		        Usuario usuarioDelBien = nuevoBien.getUsuario();
-		        String detalles = "Se ha creado un nuevo bien.";
-		        Date fechaActual = new Date();
-		        historialService.saveInHistorial(nuevoBien, usuarioDelBien, detalles, fechaActual);
+		    Usuario usuarioDelBien = nuevoBien.getUsuario();
+		    String detalles = "Se ha designado un nuevo bien.";
+		    Date fechaActual = new Date();
+		    historialService.saveInHistorial(nuevoBien, usuarioDelBien, detalles, fechaActual);
 
-		        return nuevoBien;
-			//return bienServices.Save(bien);
+		    return nuevoBien;
 		}
+
 
 		// editar un bien
 		@PutMapping("/bien/{bien_cod}")
@@ -143,4 +142,17 @@ public class BienRestControllers {
 	            return ResponseEntity.notFound().build();
 	        }
 	    }
+		@PutMapping("/bien/actualizartodos/{intervalo}")
+	    public ResponseEntity<String> actualizarFechaenBienes(@PathVariable	 int intervalo) {
+	        try {
+	           bienServices.actualizarFechaenBienes(intervalo);
+	            return new ResponseEntity<>("Actualización exitosa", HttpStatus.OK);
+	        } catch (Exception e) {
+	            return new ResponseEntity<>("Error al actualizar: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	        }	
+	    }
+	 @GetMapping("/bien/fechasprox")
+	 public List<Bien> findBienesfechdesc (){
+		 return bienServices.findBienesFechDesc();
+	 }
 }

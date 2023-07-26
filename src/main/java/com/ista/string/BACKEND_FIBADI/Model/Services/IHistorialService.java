@@ -17,5 +17,6 @@ public interface IHistorialService {
 	
 	public void DeleteHistorialById(Long id_his);
 	 public void saveInHistorial(Bien bien, Usuario usuario, String detalles, Date fecha);
+	 public List<Historial> findByUsuario(Usuario usuario);
 	
 }

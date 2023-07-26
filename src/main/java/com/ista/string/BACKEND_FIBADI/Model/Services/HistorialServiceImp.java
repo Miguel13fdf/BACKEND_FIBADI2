@@ -45,5 +45,12 @@ public class HistorialServiceImp implements IHistorialService {
 	        historial.setHis_fecha(fecha);
 	        historialDao.save(historial); // Aquí se guarda el registro en el Historial
 	    }
+	 
+	//Implement
+	 @Override
+     public List<Historial> findByUsuario(Usuario usuario) {
+	// TODO Auto-generated method stub
+	return historialDao.findByUsuario(usuario);
+}
 
 }

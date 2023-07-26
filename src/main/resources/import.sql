@@ -11,11 +11,12 @@ INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, 
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(915, 'URGILÉS', 'ORTIZ','0301162988', 'claudio.ortiz@tecazuay.edu.ec','1970-02-04', 'M', 'CLAUDIO', 'FERNANDO', '0988818368');
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(1749, 'MARIÑO', 'ELHABIL','0105704597', 'catherine.elhabil@tecazuay.edu.ec','1987-12-08', 'F', 'CATHERINE', 'CUMANDA', '0979195915');
 INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(6516515, 'DIAZ', 'HARO','0107186900', 'miguel.haro@tecazuay.edu.ec','2003-11-30', 'M', 'MIGUEL', 'ALEJANDRO', '0998501608');
+INSERT INTO PERSONA (per_cod, per_apellidomater, per_apellidopater, per_cedula, per_email, per_fechanac, per_genero, per_primernom, per_segundonom,per_telefono)VALUES(6516516, 'FARES', 'GUZMAN','0150052413', 'jose.fares.est@tecazuay.edu.ec','2003-11-30', 'M', 'JOSE', 'LUIS', '0969071826');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Super Usuario');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Custodio');
 INSERT INTO ROLES (rol_estado, rol_nombre) values (true, 'Rector');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (6516515, 'admin', true, 'admin');
-INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (6516515, 'rector', true, 'Rector');
+INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (6516516, 'rector', true, 'Rector');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (902, 'custodio1', true, 'jessica.herrera@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (879, 'custodio2', true, 'roberto.carranza@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (905, 'custodio3', true, 'jose.sanchez@tecazuay.edu.ec');
@@ -24,12 +25,12 @@ INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (866
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (925, 'custodio6', true, 'mpaz.machado@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (898, 'custodio7', true, 'pedro.guerrero@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1254, 'custodio8', true, 'christian.guaman@tecazuay.edu.ec');
-INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1474, 'custodio9', true, 'christian.guaman@tecazuay.edu.ec');
+INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1474, 'custodio9', true, 'carolina.leon@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (920, 'custodio10', true, 'freddy.narvaez@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (915, 'custodio11', true, 'claudio.ortiz@tecazuay.edu.ec');
 INSERT INTO USUARIOS (usu_per_cod, contrasenia, usu_estado, usuario) values (1749, 'custodio12', true, 'catherine.elhabil@tecazuay.edu.ec');
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (1, 1);
-INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 2);
+INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (2, 3);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (3, 2);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (4, 2);
 INSERT INTO USUARIOS_ROLES (usuario_id, rol_id) values (5, 2);
