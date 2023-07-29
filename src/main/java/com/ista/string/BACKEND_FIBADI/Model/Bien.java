@@ -3,6 +3,7 @@ package com.ista.string.BACKEND_FIBADI.Model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,12 +30,15 @@ public class Bien implements Serializable {
 	private String bien_modelo;
 	private String bien_marca;
 	private String bien_estado;
+	 @Column(length = 1000)
 	private String bien_detalles;
+	 @Column(length = 1000)
 	private String bien_descripcion;
 	private String bien_serie;
 	private Double bien_precio;
 	private Boolean bien_estadoA;
 	private Boolean bien_estado_asignado;
+	 @Column(length = 1000)
 	private String bien_descripcion_lugar;
 	private Date bien_fecha_consta;
 	
